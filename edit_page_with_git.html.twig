@@ -1,0 +1,11 @@
+{% extends '@nucleus/partials/particle.html.twig' %}
+
+{% block particle %}
+{% set githubURL = particle.url ~ ('/'~grav.page.filePathClean)|replace({'/user/':''}) %}
+<div class="edit_page_with_git {{ particle.css.class }}">
+  <a href="{{ githubURL }}" title="Edit this Page on GitHub" target="blank">
+    {% if particle.icon %}
+      <i class="fa fa-{{ particle.icon }}" aria-hidden="true"></i>
+    {% endif %}
+    Edit this Page</a>
+{% endblock %}

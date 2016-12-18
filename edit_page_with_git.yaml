@@ -1,0 +1,28 @@
+name: Edit Page with Git
+description: Displays a link to a Git Repo on the front end.
+type: particle
+
+form:
+  fields:
+    text:
+      type: input.text
+      size: medium
+      label: Link Text
+      description: Customize the section title text.
+
+    icon:
+        type: input.text
+        size: small
+        label: Font Awesome Icon
+        default: 'github'
+        help: Determines the default Font Awesome icon used for Edit Page links.
+        validate:
+            type: text
+
+    url:
+        type: text
+        size: large
+        label: Repository URL
+        help: Enter the URL for the GitHub/GitLab repository that contains your Grav Course Hub files.
+        validate:
+            type: URL
