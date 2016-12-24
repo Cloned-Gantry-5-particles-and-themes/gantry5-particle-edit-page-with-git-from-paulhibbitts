@@ -1,9 +1,13 @@
 {% extends '@nucleus/partials/particle.html.twig' %}
 
 {% block particle %}
-{% set githubURL = particle.url ~ ('/'~grav.page.filePathClean)|replace({'/user/':''}) %}
+{% if grav.page.header.gitrepolink %}
+  {% set gitrepoURL = grav.page.header.gitrepolink %}
+{% else %}
+  {% set gitrepoURL = particle.url ~ ('/'~grav.page.filePathClean)|replace({'/user/':''}) %}
+{% endif %}
 <div class="edit_page_with_git {{ particle.css.class }}">
-  <a href="{{ githubURL }}" title="Edit this Page on GitHub" target="blank">
+  <a href="{{ gitrepoURL }}" title="Edit this Page" target="blank">
     {% if particle.icon %}
       <i class="fa fa-{{ particle.icon }}" aria-hidden="true"></i>
     {% endif %}
